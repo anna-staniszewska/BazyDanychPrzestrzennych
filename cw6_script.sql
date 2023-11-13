@@ -22,9 +22,11 @@ FROM obiekty WHERE nazwa = 'obiekt3';
 
 --- 2. Zamień obiekt4 na poligon. Jaki warunek musi być spełniony, aby można było wykonać to zadanie?
 ---	   Zapewnij te warunki.
-UPDATE obiekty SET geom  = ST_MakePolygon(ST_LineMerge(
-	'MULTILINESTRING((20 20,25 25,27 24,25 22,26 21,22 19,20.5 19.5,20 20))'))
-WHERE nazwa = 'obiekt4';
+UPDATE obiekty SET geom = 
+(SELECT ST_AsText(ST_MakePolygon(ST_LineMerge(
+	ST_Collect(geom, 'MULTILINESTRING((20.5 19.5,20 20))'))))
+FROM obiekty
+WHERE nazwa = 'obiekt4');
 
 SELECT ST_AsText(geom) FROM obiekty WHERE nazwa = 'obiekt4';
 
