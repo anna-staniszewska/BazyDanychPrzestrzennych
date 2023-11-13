@@ -26,11 +26,12 @@ UPDATE obiekty SET geom =
 (SELECT ST_AsText(ST_MakePolygon(ST_LineMerge(
 	ST_Collect(geom, 'MULTILINESTRING((20.5 19.5,20 20))'))))
 FROM obiekty
-WHERE nazwa = 'obiekt4');
+WHERE nazwa = 'obiekt4')
+WHERE nazwa = 'obiekt4';
 
 SELECT ST_AsText(geom) FROM obiekty WHERE nazwa = 'obiekt4';
 
-
+TRUNCATE obiekty;
 --- 3. W tabeli obiekty, jako obiekt7 zapisz obiekt złożony z obiektu 3 i obiektu 4.
 INSERT INTO obiekty VALUES ('obiekt7', (SELECT ST_Collect(geom, 
 			(SELECT geom FROM obiekty WHERE nazwa = 'obiekt4')) 
