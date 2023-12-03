@@ -1,5 +1,7 @@
-raster2pgsql.exe -s 3763 -N -32767 -t 100x100 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\srtm_1arc_v3.tif rasters.dem > D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\dem.sql
+-- 2. Załaduj te dane do tabeli o nazwie uk_250k.
+raster2pgsql.exe -s 27700 -N -32767 -t 4000x4000 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw8\ras250_gb\data\*.tif rasters.uk_250k | psql -d cw8_bazy -h localhost -U postgres -p 5433
 
-raster2pgsql.exe -s 3763 -N -32767 -t 100x100 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\srtm_1arc_v3.tif rasters.dem | psql -d postgis_rasters -h localhost -U postgres -p 5433
+-- 9. Załaduj dane z Sentinela-2 do bazy danych.
+raster2pgsql.exe -s 4326 -N -32767 -t 2500x1642 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw8\Sentinel-2_L2A_B03_(Raw).tiff rasters.S2_B03 | psql -d cw8_bazy -h localhost -U postgres -p 5433
 
-raster2pgsql.exe -s 3763 -N -32767 -t 128x128 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\Landsat8_L1TP_RGBN.TIF rasters.landsat8 | psql -d postgis_raster -h localhost -U postgres -p 5433
+raster2pgsql.exe -s 4326 -N -32767 -t 2500x1642 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw8\Sentinel-2_L2A_B08_(Raw).tiff rasters.S2_B08 | psql -d cw8_bazy -h localhost -U postgres -p 5433
