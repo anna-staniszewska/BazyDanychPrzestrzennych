@@ -1,0 +1,26 @@
+Name:
+Webhook - cw10 from Dashboards - 4f8ec0cc-d705-3e65-a052-28375075e596
+
+Token:
+75b09380c08ffd23b84488f62c4c0bbe2de2b27a
+
+Description:
+Allow users to run Dashboards/cw10 without logging in
+
+Created Date:
+2024-01-19T22:47:40.512Z
+
+Expiration Date:
+2025-02-27T23:00:00.000Z
+
+Enabled:
+true
+
+Authorization with Header:
+http://localhost:2654/fmedatadownload/Dashboards/cw10.fmw?API=&e-mail_klienta=anis12345%40op.pl&powiat=tarnowski&cloud_coverage=20&date_start=20230901&date_finish=20231231&SourceDataset_SHAPEFILE=D%3A%5Cstudia%5CSemestr_5%5CBazyDanychPrzestrzennych%5Ccw10%5Cpowiaty.shp&DestDataset_TIFF=D%3A%5Cstudia%5CSemestr_5%5CBazyDanychPrzestrzennych%5Ccw10&opt_showresult=false&opt_servicemode=sync
+Header Key: Authorization
+Header Value: fmetoken token=75b09380c08ffd23b84488f62c4c0bbe2de2b27a
+
+Authorization with Query String:
+http://localhost:2654/fmedatadownload/Dashboards/cw10.fmw?API=&e-mail_klienta=anis12345%40op.pl&powiat=tarnowski&cloud_coverage=20&date_start=20230901&date_finish=20231231&SourceDataset_SHAPEFILE=D%3A%5Cstudia%5CSemestr_5%5CBazyDanychPrzestrzennych%5Ccw10%5Cpowiaty.shp&DestDataset_TIFF=D%3A%5Cstudia%5CSemestr_5%5CBazyDanychPrzestrzennych%5Ccw10&opt_showresult=false&opt_servicemode=sync&token=75b09380c08ffd23b84488f62c4c0bbe2de2b27a
+
