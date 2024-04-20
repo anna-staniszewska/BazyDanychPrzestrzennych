@@ -1,0 +1,20 @@
+Invoke-RestMethod -Uri "https://api.mapbox.com/uploads/v1/<username>/credentials?access_token=<token>" -Method Post
+
+$env:AWS_ACCESS_KEY_ID ="<>"
+$env:AWS_SECRET_ACCESS_KEY = "<>"
+$env:AWS_SESSION_TOKEN = "<>"
+
+aws s3 cp T2019_KAR_POI_TABLE.zip s3://<bucket>/<key> --region eu-north-1 
+
+$headers = @{
+    "Content-Type" = "application/json"
+    "Cache-Control" = "no-cache"
+}
+
+$body = @{
+    url = ""
+    tileset = "<username>.poi"
+    name = "Poi"
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "https://api.mapbox.com/uploads/v1/<username>?access_token=<token>" -Method Post -Headers $headers -Body $body
