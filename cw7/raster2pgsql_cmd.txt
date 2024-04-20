@@ -1,0 +1,5 @@
+raster2pgsql.exe -s 3763 -N -32767 -t 100x100 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\srtm_1arc_v3.tif rasters.dem > D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\dem.sql
+
+raster2pgsql.exe -s 3763 -N -32767 -t 100x100 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\srtm_1arc_v3.tif rasters.dem | psql -d postgis_rasters -h localhost -U postgres -p 5433
+
+raster2pgsql.exe -s 3763 -N -32767 -t 128x128 -I -C -M -d D:\studia\Semestr_5\BazyDanychPrzestrzennych\cw7\dane\Landsat8_L1TP_RGBN.TIF rasters.landsat8 | psql -d postgis_raster -h localhost -U postgres -p 5433
